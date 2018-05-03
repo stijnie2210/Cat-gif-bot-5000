@@ -20,6 +20,17 @@ class CatProvider {
             }.resume()
     }
     
+    func getImage() {
+        let group = DispatchGroup()
+        group.enter()
+        DispatchQueue.global().async {
+            let gif = UIImage.gif(url: self.baseUrl)
+            self.cats.append(gif!)
+            group.leave()
+        }
+        group.wait()
+    }
+    
     func downloadImage(url: URL) {
         print("Download Started")
         getDataFromUrl(url: url) { data, response, error in
@@ -34,17 +45,14 @@ class CatProvider {
                 group.leave()
             }
             group.wait()
-            if(self.cats.count == 10) {
-                let updates = Updates()
-                updates.sendUpdate()
-                
-            }
+
         }
     }
     
     func refreshCats() {
-        for _ in 0...9 {
-            downloadImage(url: URL(string: "https://thecatapi.com/api/images/get?format=src&type=gif")!)
+        cats = [UIImage]()
+        for _ in 0...99 {
+            getImage()
         }
         
     }

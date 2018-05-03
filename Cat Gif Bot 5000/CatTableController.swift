@@ -9,18 +9,23 @@
 import Foundation
 import UIKit
 
-class CatTableController : UITableViewController, UpdateDelegate {
+class CatTableController : UITableViewController {
     
     
     @IBOutlet weak var loadIcon: UIActivityIndicatorView!
     
     var catProvider:CatProvider = CatProvider()
-    let updates = Updates()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let rc = UIRefreshControl()
+        let scrollView = UIScrollView()
+        self.tableView.refreshControl = rc
+        scrollView.refreshControl = rc
+        rc.addTarget(self, action: #selector(self.refresh(refreshControl:)), for: UIControlEvents.valueChanged)
+        self.tableView.addSubview(rc)
+        
         loadIcon.startAnimating()
-        updates.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -33,14 +38,15 @@ class CatTableController : UITableViewController, UpdateDelegate {
         
     }
     
-    func didUpdate(sender: Updates) {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
-    }
-    
     func loadCats() {
         self.catProvider.refreshCats()
+        
+        DispatchQueue.main.async {
+            self.refreshControl?.beginRefreshing()
+            self.tableView.reloadData()
+            self.loadIcon.stopAnimating()
+            self.refreshControl?.endRefreshing()
+        }
     }
     
     
@@ -49,24 +55,26 @@ class CatTableController : UITableViewController, UpdateDelegate {
         return 1
     }
     
+    func refresh(refreshControl: UIRefreshControl) {
+        loadIcon.startAnimating()
+        loadCats()
+    }
+    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        
-        // TODO: Get playlist data and return number of rows based on array size
         return catProvider.cats.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //elf.tableView.addSubview(self.refreshControl)
         let cell = tableView.dequeueReusableCell(withIdentifier: "catCell", for: indexPath)
         
         cell.imageView?.contentMode = .scaleAspectFit
         
+        let cat = indexPath.row
         
         // Configure the cell...
-        
-        let cat = indexPath.row
-        cell.textLabel?.text = "test"
+        cell.textLabel?.text = ""
         cell.imageView?.image = catProvider.cats[cat]
         
         return cell
