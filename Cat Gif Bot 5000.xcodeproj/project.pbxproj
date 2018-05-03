@@ -13,6 +13,8 @@
 		36E0F459209B562500ED4CC9 /* Cat_Gif_Bot_5000.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 36E0F457209B562500ED4CC9 /* Cat_Gif_Bot_5000.xcdatamodeld */; };
 		36E0F45B209B562500ED4CC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36E0F45A209B562500ED4CC9 /* Assets.xcassets */; };
 		36E0F45E209B562500ED4CC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36E0F45C209B562500ED4CC9 /* LaunchScreen.storyboard */; };
+		36E0F466209B5CA000ED4CC9 /* LoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E0F465209B5CA000ED4CC9 /* LoadViewController.swift */; };
+		36E0F468209B627900ED4CC9 /* CatProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E0F467209B627900ED4CC9 /* CatProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		36E0F45A209B562500ED4CC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		36E0F45D209B562500ED4CC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		36E0F45F209B562500ED4CC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		36E0F465209B5CA000ED4CC9 /* LoadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadViewController.swift; sourceTree = "<group>"; };
+		36E0F467209B627900ED4CC9 /* CatProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				36E0F45C209B562500ED4CC9 /* LaunchScreen.storyboard */,
 				36E0F45F209B562500ED4CC9 /* Info.plist */,
 				36E0F457209B562500ED4CC9 /* Cat_Gif_Bot_5000.xcdatamodeld */,
+				36E0F465209B5CA000ED4CC9 /* LoadViewController.swift */,
+				36E0F467209B627900ED4CC9 /* CatProvider.swift */,
 			);
 			path = "Cat Gif Bot 5000";
 			sourceTree = "<group>";
@@ -141,7 +147,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				36E0F459209B562500ED4CC9 /* Cat_Gif_Bot_5000.xcdatamodeld in Sources */,
+				36E0F468209B627900ED4CC9 /* CatProvider.swift in Sources */,
 				36E0F453209B562500ED4CC9 /* ViewController.swift in Sources */,
+				36E0F466209B5CA000ED4CC9 /* LoadViewController.swift in Sources */,
 				36E0F451209B562500ED4CC9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,6 +312,7 @@
 				36E0F464209B562500ED4CC9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
