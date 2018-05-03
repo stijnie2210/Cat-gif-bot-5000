@@ -12,18 +12,32 @@
         <!--Cats-->
         <scene sceneID="oDb-Hd-1BM">
             <objects>
-                <tableViewController id="v3d-Qi-Z7u" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="MeR-D9-DsU">
+                <tableViewController id="v3d-Qi-Z7u" customClass="CatTableController" customModule="Cat_Gif_Bot_5000" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="128" sectionHeaderHeight="28" sectionFooterHeight="28" id="MeR-D9-DsU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="uQU-Zz-l2E">
+                            <rect key="frame" x="0.0" y="156" width="375" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="color" red="0.99511164426803589" green="0.15630272030830383" blue="0.0015967676881700754" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </activityIndicatorView>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="gbn-FA-b2t">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="catCell" textLabel="1vh-dB-AQ7" rowHeight="128" style="IBUITableViewCellStyleDefault" id="gbn-FA-b2t">
+                                <rect key="frame" x="0.0" y="28" width="375" height="128"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gbn-FA-b2t" id="jeg-Fu-GpR">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="127"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1vh-dB-AQ7">
+                                            <rect key="frame" x="15" y="0.0" width="345" height="127"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -33,10 +47,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Cats" id="XGZ-Uw-AE8"/>
+                    <connections>
+                        <outlet property="loadIcon" destination="uQU-Zz-l2E" id="lnC-XM-hci"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pOk-Lj-Fc9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="796" y="875"/>
+            <point key="canvasLocation" x="796" y="874.81259370314854"/>
         </scene>
         <!--Load View Controller-->
         <scene sceneID="qDf-ZX-YJx">
@@ -80,30 +97,12 @@
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="v3d-Qi-Z7u" kind="show" id="zsF-HH-xJO"/>
+                        <segue destination="v3d-Qi-Z7u" kind="relationship" relationship="rootViewController" id="19l-Kb-VDT"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xfz-EJ-Do7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="796" y="123"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="hlm-qt-qEz">
-            <objects>
-                <viewController id="hrG-9p-ape" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Ozv-4F-RH1"/>
-                        <viewControllerLayoutGuide type="bottom" id="aVn-Z4-bQc"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Tmj-HN-IO9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="F4h-FJ-x30" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1494" y="123"/>
         </scene>
     </scenes>
 </document>

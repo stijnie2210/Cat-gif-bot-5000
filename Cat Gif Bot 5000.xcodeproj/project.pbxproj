@@ -15,6 +15,9 @@
 		36E0F45E209B562500ED4CC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36E0F45C209B562500ED4CC9 /* LaunchScreen.storyboard */; };
 		36E0F466209B5CA000ED4CC9 /* LoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E0F465209B5CA000ED4CC9 /* LoadViewController.swift */; };
 		36E0F468209B627900ED4CC9 /* CatProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E0F467209B627900ED4CC9 /* CatProvider.swift */; };
+		36E0F46A209B729700ED4CC9 /* CatTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E0F469209B729700ED4CC9 /* CatTableController.swift */; };
+		36E0F472209B939000ED4CC9 /* UpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E0F471209B939000ED4CC9 /* UpdateDelegate.swift */; };
+		36E0F474209B93A400ED4CC9 /* Updates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E0F473209B93A400ED4CC9 /* Updates.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		36E0F45F209B562500ED4CC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36E0F465209B5CA000ED4CC9 /* LoadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadViewController.swift; sourceTree = "<group>"; };
 		36E0F467209B627900ED4CC9 /* CatProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatProvider.swift; sourceTree = "<group>"; };
+		36E0F469209B729700ED4CC9 /* CatTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatTableController.swift; sourceTree = "<group>"; };
+		36E0F471209B939000ED4CC9 /* UpdateDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateDelegate.swift; sourceTree = "<group>"; };
+		36E0F473209B93A400ED4CC9 /* Updates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Updates.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +75,9 @@
 				36E0F457209B562500ED4CC9 /* Cat_Gif_Bot_5000.xcdatamodeld */,
 				36E0F465209B5CA000ED4CC9 /* LoadViewController.swift */,
 				36E0F467209B627900ED4CC9 /* CatProvider.swift */,
+				36E0F469209B729700ED4CC9 /* CatTableController.swift */,
+				36E0F471209B939000ED4CC9 /* UpdateDelegate.swift */,
+				36E0F473209B93A400ED4CC9 /* Updates.swift */,
 			);
 			path = "Cat Gif Bot 5000";
 			sourceTree = "<group>";
@@ -149,8 +158,11 @@
 				36E0F459209B562500ED4CC9 /* Cat_Gif_Bot_5000.xcdatamodeld in Sources */,
 				36E0F468209B627900ED4CC9 /* CatProvider.swift in Sources */,
 				36E0F453209B562500ED4CC9 /* ViewController.swift in Sources */,
+				36E0F46A209B729700ED4CC9 /* CatTableController.swift in Sources */,
 				36E0F466209B5CA000ED4CC9 /* LoadViewController.swift in Sources */,
 				36E0F451209B562500ED4CC9 /* AppDelegate.swift in Sources */,
+				36E0F474209B93A400ED4CC9 /* Updates.swift in Sources */,
+				36E0F472209B939000ED4CC9 /* UpdateDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
