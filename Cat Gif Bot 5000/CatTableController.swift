@@ -44,8 +44,6 @@ class CatTableController : UITableViewController {
     }
     
     func loadCats() {
-        
-        
         DispatchQueue.main.async {
             self.catProvider.refreshCats()
             self.refreshControl?.beginRefreshing()

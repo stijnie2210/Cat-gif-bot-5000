@@ -12,12 +12,22 @@ import UIKit
 class CatDetailViewController : UIViewController {
     
     @IBOutlet weak var catImage: UIImageView!
+    @IBOutlet weak var loremText: UITextView!
     
     var cat = UIImage()
+    let loremProvider = LoremProvider()
     
     override func viewDidLoad() {
         catImage.image = cat
         catImage.contentMode = .scaleAspectFit
+        getLorem()
+    }
+    
+    func getLorem() {
+        DispatchQueue.main.async {
+            self.loremProvider.getLorem()
+            self.loremText.text = self.loremProvider.loremText
+        }
     }
     
 }
