@@ -18,6 +18,7 @@ class CatTableController : UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.loadIcon.hidesWhenStopped = true
         let rc = UIRefreshControl()
         let scrollView = UIScrollView()
         self.tableView.refreshControl = rc
@@ -60,22 +61,23 @@ class CatTableController : UITableViewController {
         loadCats()
     }
     
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return catProvider.cats.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //elf.tableView.addSubview(self.refreshControl)
-        let cell = tableView.dequeueReusableCell(withIdentifier: "catCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "catCell", for: indexPath) as UITableViewCell
         
-        cell.imageView?.contentMode = .scaleAspectFit
+        //cell.imageView?.contentMode = .scaleAspectFit
         
         let cat = indexPath.row
+        let image = catProvider.cats[cat]
+        let imageView = cell.imageView
+        imageView?.sizeToFit()
         
         // Configure the cell...
         cell.textLabel?.text = ""
-        cell.imageView?.image = catProvider.cats[cat]
+        imageView?.image = image
         
         return cell
     }

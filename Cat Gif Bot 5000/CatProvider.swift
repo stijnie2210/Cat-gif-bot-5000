@@ -50,8 +50,8 @@ class CatProvider {
     }
     
     func refreshCats() {
-        cats = [UIImage]()
-        for _ in 0...99 {
+        cats.removeAll()
+        for _ in 0...9 {
             getImage()
         }
         
