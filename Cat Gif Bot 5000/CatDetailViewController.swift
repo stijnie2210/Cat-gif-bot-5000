@@ -11,4 +11,13 @@ import UIKit
 
 class CatDetailViewController : UIViewController {
     
+    @IBOutlet weak var catImage: UIImageView!
+    
+    var cat = UIImage()
+    
+    override func viewDidLoad() {
+        catImage.image = cat
+        catImage.contentMode = .scaleAspectFit
+    }
+    
 }

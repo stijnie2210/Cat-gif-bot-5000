@@ -14,7 +14,7 @@ class CatTableController : UITableViewController {
     
     @IBOutlet weak var loadIcon: UIActivityIndicatorView!
     
-    var catProvider:CatProvider = CatProvider()
+    var catProvider = CatProvider()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +27,15 @@ class CatTableController : UITableViewController {
         self.tableView.addSubview(rc)
         
         loadIcon.startAnimating()
+        
+        DispatchQueue.main.async {
+            self.loadCats()
+        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        loadCats()
     }
     
     override func didReceiveMemoryWarning() {
@@ -40,9 +44,10 @@ class CatTableController : UITableViewController {
     }
     
     func loadCats() {
-        self.catProvider.refreshCats()
+        
         
         DispatchQueue.main.async {
+            self.catProvider.refreshCats()
             self.refreshControl?.beginRefreshing()
             self.tableView.reloadData()
             self.loadIcon.stopAnimating()
@@ -80,6 +85,18 @@ class CatTableController : UITableViewController {
         imageView?.image = image
         
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if(segue.identifier == "toDetail") {
+            let cat = self.catProvider.cats[tableView.indexPathForSelectedRow!.row]
+            
+            if let details = segue.destination as? CatDetailViewController {
+                details.cat = cat
+            }
+        }
+        
     }
     
 }

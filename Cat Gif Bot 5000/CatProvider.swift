@@ -25,6 +25,9 @@ class CatProvider {
         group.enter()
         DispatchQueue.global().async {
             let gif = UIImage.gif(url: self.baseUrl)
+            if(gif == nil) {
+                return self.getImage()
+            }
             self.cats.append(gif!)
             group.leave()
         }

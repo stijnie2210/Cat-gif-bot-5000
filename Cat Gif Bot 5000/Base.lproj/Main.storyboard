@@ -27,11 +27,11 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gbn-FA-b2t" id="jeg-Fu-GpR">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="127.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="127"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="P9U-GN-WQC">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="127.5"/>
+                                            <rect key="frame" x="15" y="0.0" width="345" height="127"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -39,6 +39,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="hOF-0m-l3C" kind="show" identifier="toDetail" id="CAk-YD-4zC"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -54,6 +57,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pOk-Lj-Fc9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="796" y="874.81259370314854"/>
+        </scene>
+        <!--Cat Detail View Controller-->
+        <scene sceneID="9SH-8H-ANy">
+            <objects>
+                <viewController id="hOF-0m-l3C" customClass="CatDetailViewController" customModule="Cat_Gif_Bot_5000" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YPh-iD-rr5"/>
+                        <viewControllerLayoutGuide type="bottom" id="sfH-Gi-SBQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XTO-vV-jeG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Exv-3q-YrS">
+                                <rect key="frame" x="16" y="72" width="343" height="186"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="catImage" destination="Exv-3q-YrS" id="ch1-Jy-CLl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kCj-ck-FhV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1616.8" y="874.81259370314854"/>
         </scene>
         <!--Load View Controller-->
         <scene sceneID="qDf-ZX-YJx">
@@ -76,17 +106,18 @@
                     </view>
                     <connections>
                         <outlet property="LoadIndicator" destination="gVK-jb-hmw" id="Qq0-R6-SYH"/>
-                        <segue destination="iBd-Ya-fhE" kind="show" identifier="toMain" id="vu3-bd-20h"/>
+                        <segue destination="mFL-OC-ohm" kind="show" identifier="toMain" id="PzE-wp-5BJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="06x-Ki-DKt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-230" y="123"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Cats-->
         <scene sceneID="FUf-1k-Ge0">
             <objects>
                 <navigationController id="iBd-Ya-fhE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Cats" id="ngJ-gg-Ena"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RQm-yN-yfE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -102,7 +133,24 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xfz-EJ-Do7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="796" y="123"/>
+            <point key="canvasLocation" x="1350" y="123"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="HWS-pO-jzg">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vFZ-lc-kbu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tabBarController id="mFL-OC-ohm" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="bNI-v3-YIn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="iBd-Ya-fhE" kind="relationship" relationship="viewControllers" id="h2l-sF-vh0"/>
+                    </connections>
+                </tabBarController>
+            </objects>
+            <point key="canvasLocation" x="553" y="123"/>
         </scene>
     </scenes>
 </document>
