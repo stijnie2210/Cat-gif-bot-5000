@@ -15,6 +15,7 @@ class CatTableController : UITableViewController, TableViewProtocol {
     
     let catProvider = CatProvider()
     var cats = [UIImage]()
+    var latestIndex = Int()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +46,11 @@ class CatTableController : UITableViewController, TableViewProtocol {
         if result != nil {
             DispatchQueue.main.async {
                 self.cats.append(result!)
-                self.tableView.reloadData()
+                self.latestIndex = self.cats.endIndex - 1
+                let indexPath = IndexPath(row: self.latestIndex, section: 0)
+                self.tableView.insertRows(at: [indexPath], with: .none)
+                self.tableView.cellForRow(at: indexPath)
+                
             }
             loadIcon.stopAnimating()
         } else {
