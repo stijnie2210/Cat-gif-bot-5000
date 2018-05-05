@@ -42,7 +42,7 @@ class CatTableController : UITableViewController, TableViewProtocol {
     }
     
     func didReceiveTableData(result: UIImage?) {
-        if let act = result {
+        if result != nil {
             DispatchQueue.main.async {
                 self.cats.append(result!)
                 self.tableView.reloadData()
