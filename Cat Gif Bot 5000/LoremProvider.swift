@@ -24,7 +24,7 @@ class LoremProvider {
         
         request.httpMethod = "GET"
         
-        let sema = DispatchSemaphore(value: 0);
+        let sema = DispatchSemaphore(value: 0)
         
         let task = URLSession.shared.dataTask(with: request) {data, response, err in
             

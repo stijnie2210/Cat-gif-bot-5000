@@ -9,23 +9,18 @@
 import Foundation
 import UIKit
 
-class CatTableController : UITableViewController {
-    
+class CatTableController : UITableViewController, TableViewProtocol {
     
     @IBOutlet weak var loadIcon: UIActivityIndicatorView!
     
-    var catProvider = CatProvider()
+    let catProvider = CatProvider()
+    var cats = [UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loadIcon.hidesWhenStopped = true
-        let rc = UIRefreshControl()
-        let scrollView = UIScrollView()
-        self.tableView.refreshControl = rc
-        scrollView.refreshControl = rc
-        rc.addTarget(self, action: #selector(self.refresh(refreshControl:)), for: UIControlEvents.valueChanged)
-        self.tableView.addSubview(rc)
         
+        catProvider.tableViewDelegate = self
+        tableviewConfig()
         loadIcon.startAnimating()
         
         DispatchQueue.main.async {
@@ -34,8 +29,28 @@ class CatTableController : UITableViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+    func tableviewConfig() {
+        let rc = UIRefreshControl()
+        let scrollView = UIScrollView()
+        
+        tableView.refreshControl = rc
+        scrollView.refreshControl = rc
+        
+        rc.addTarget(self, action: #selector(self.refresh(refreshControl:)), for: UIControlEvents.valueChanged)
+        tableView.addSubview(rc)
+
+    }
+    
+    func didReceiveTableData(result: UIImage?) {
+        if let act = result {
+            DispatchQueue.main.async {
+                self.cats.append(result!)
+                self.tableView.reloadData()
+            }
+            loadIcon.stopAnimating()
+        } else {
+            
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,40 +59,35 @@ class CatTableController : UITableViewController {
     }
     
     func loadCats() {
-        DispatchQueue.main.async {
-            self.catProvider.refreshCats()
-            self.refreshControl?.beginRefreshing()
-            self.tableView.reloadData()
-            self.loadIcon.stopAnimating()
-            self.refreshControl?.endRefreshing()
-        }
+        self.catProvider.refreshCats()
     }
     
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     func refresh(refreshControl: UIRefreshControl) {
-        loadIcon.startAnimating()
-        loadCats()
+        cats.removeAll()
+        tableView.reloadData()
+        
+        DispatchQueue.main.async {
+            self.loadCats()
+            refreshControl.endRefreshing()
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return catProvider.cats.count
+        return cats.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "catCell", for: indexPath) as UITableViewCell
-        
-        //cell.imageView?.contentMode = .scaleAspectFit
-        
+            
         let cat = indexPath.row
-        let image = catProvider.cats[cat]
+        let image = self.cats[cat]
         let imageView = cell.imageView
         imageView?.sizeToFit()
-        
+            
         // Configure the cell...
         cell.textLabel?.text = ""
         imageView?.image = image
@@ -88,7 +98,7 @@ class CatTableController : UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if(segue.identifier == "toDetail") {
-            let cat = self.catProvider.cats[tableView.indexPathForSelectedRow!.row]
+            let cat = self.cats[tableView.indexPathForSelectedRow!.row]
             
             if let details = segue.destination as? CatDetailViewController {
                 details.cat = cat

@@ -12,49 +12,32 @@ import UIKit
 class CatProvider {
     
     let baseUrl = "https://thecatapi.com/api/images/get?format=src&type=gif"
-    var cats = [UIImage]()
-    
-    func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            completion(data, response, error)
-            }.resume()
-    }
+    var tableViewDelegate: TableViewProtocol?
     
     func getImage() {
-        let group = DispatchGroup()
-        group.enter()
-        DispatchQueue.global().async {
-            let gif = UIImage.gif(url: self.baseUrl)
-            if(gif == nil) {
-                return self.getImage()
+        
+        let url:URL = URL(string: self.baseUrl)!
+        var request = URLRequest(url: url)
+        
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request) {data, response, err in
+            
+            do {
+                if (response as? HTTPURLResponse) != nil {
+                    
+                    let image = UIImage.gif(data: data!)
+                    self.tableViewDelegate?.didReceiveTableData(result: image)
+                }
             }
-            self.cats.append(gif!)
-            group.leave()
         }
-        group.wait()
-    }
-    
-    func downloadImage(url: URL) {
-        print("Download Started")
-        getDataFromUrl(url: url) { data, response, error in
-            guard let data = data, error == nil else { return }
-            print(response?.suggestedFilename ?? url.lastPathComponent)
-            print("Download Finished")
-            let group = DispatchGroup()
-            group.enter()
-            DispatchQueue.global().async {
-                let image = UIImage(data: data)
-                self.cats.append(image!)
-                group.leave()
-            }
-            group.wait()
-
-        }
+        
+        task.resume()
+        
     }
     
     func refreshCats() {
-        cats.removeAll()
-        for _ in 0...9 {
+        for _ in 0...99 {
             getImage()
         }
         

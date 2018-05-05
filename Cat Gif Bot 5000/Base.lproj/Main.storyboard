@@ -17,27 +17,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="uQU-Zz-l2E">
+                        <activityIndicatorView key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" id="uQU-Zz-l2E">
                             <rect key="frame" x="0.0" y="156" width="375" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="color" red="0.99511164426803589" green="0.15630272030830383" blue="0.0015967676881700754" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </activityIndicatorView>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="catCell" textLabel="P9U-GN-WQC" rowHeight="128" style="IBUITableViewCellStyleDefault" id="gbn-FA-b2t">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="0.0" reuseIdentifier="catCell" rowHeight="128" id="gbn-FA-b2t">
                                 <rect key="frame" x="0.0" y="28" width="375" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gbn-FA-b2t" id="jeg-Fu-GpR">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="127"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="gbn-FA-b2t" id="jeg-Fu-GpR">
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="127.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="P9U-GN-WQC">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="127"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="hOF-0m-l3C" kind="show" identifier="toDetail" id="CAk-YD-4zC"/>
@@ -107,10 +98,10 @@
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="gVK-jb-hmw">
                                 <rect key="frame" x="169" y="315" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.73615580797195435" green="0.98139828443527222" blue="0.012735988944768906" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <outlet property="LoadIndicator" destination="gVK-jb-hmw" id="Qq0-R6-SYH"/>
@@ -126,11 +117,11 @@
             <objects>
                 <navigationController id="iBd-Ya-fhE" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Cats" id="ngJ-gg-Ena"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RQm-yN-yfE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="RQm-yN-yfE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.73615580797195435" green="0.98139828443527222" blue="0.012735988944768906" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
@@ -146,7 +137,6 @@
         <!--Tab Bar Controller-->
         <scene sceneID="HWS-pO-jzg">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vFZ-lc-kbu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController id="mFL-OC-ohm" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="bNI-v3-YIn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
@@ -157,6 +147,7 @@
                         <segue destination="iBd-Ya-fhE" kind="relationship" relationship="viewControllers" id="h2l-sF-vh0"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vFZ-lc-kbu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="553" y="123"/>
         </scene>
