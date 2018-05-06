@@ -78,8 +78,8 @@ class CatTableController : UITableViewController, TableViewProtocol {
         
         DispatchQueue.main.async {
             self.loadCats()
-            refreshControl.endRefreshing()
         }
+        refreshControl.endRefreshing()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
