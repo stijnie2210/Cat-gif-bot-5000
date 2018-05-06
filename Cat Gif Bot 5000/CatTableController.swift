@@ -27,7 +27,6 @@ class CatTableController : UITableViewController, TableViewProtocol {
         DispatchQueue.main.async {
             self.loadCats()
         }
-        
     }
     
     func tableviewConfig() {
@@ -37,7 +36,7 @@ class CatTableController : UITableViewController, TableViewProtocol {
         tableView.refreshControl = rc
         scrollView.refreshControl = rc
         
-        rc.addTarget(self, action: #selector(self.refresh(refreshControl:)), for: UIControlEvents.valueChanged)
+        rc.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView.addSubview(rc)
 
     }
@@ -50,9 +49,7 @@ class CatTableController : UITableViewController, TableViewProtocol {
                 let indexPath = IndexPath(row: self.latestIndex, section: 0)
                 self.tableView.insertRows(at: [indexPath], with: .none)
                 self.tableView.cellForRow(at: indexPath)
-                
             }
-            loadIcon.stopAnimating()
         } else {
             
         }
@@ -65,13 +62,17 @@ class CatTableController : UITableViewController, TableViewProtocol {
     
     func loadCats() {
         self.catProvider.refreshCats()
+        DispatchQueue.main.async {
+            self.refreshControl?.endRefreshing()
+            self.loadIcon.stopAnimating()
+        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func refresh(refreshControl: UIRefreshControl) {
+    @objc func refresh(refreshControl: UIRefreshControl) {
         cats.removeAll()
         tableView.reloadData()
         
