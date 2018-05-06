@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Fa5-D6-GVK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16G1314" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Fa5-D6-GVK">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -70,19 +71,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Exv-3q-YrS">
-                                <rect key="frame" x="16" y="72" width="343" height="186"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GfU-D7-tEO">
-                                <rect key="frame" x="16" y="266" width="343" height="344"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="QrE-A1-wSe">
+                                <rect key="frame" x="16" y="64" width="343" height="554"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Exv-3q-YrS">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="Ktn-v1-H7j"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GfU-D7-tEO">
+                                        <rect key="frame" x="0.0" y="204" width="343" height="350"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="QrE-A1-wSe" secondAttribute="leading" id="42P-6P-Px7"/>
+                            <constraint firstItem="QrE-A1-wSe" firstAttribute="top" secondItem="YPh-iD-rr5" secondAttribute="bottom" id="GUE-G5-XxR"/>
+                            <constraint firstItem="sfH-Gi-SBQ" firstAttribute="top" secondItem="QrE-A1-wSe" secondAttribute="bottom" id="T2M-q4-RHB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QrE-A1-wSe" secondAttribute="trailing" id="reA-n1-1rN"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="catImage" destination="Exv-3q-YrS" id="ch1-Jy-CLl"/>
@@ -91,7 +104,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kCj-ck-FhV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1616.8" y="874.81259370314854"/>
+            <point key="canvasLocation" x="1616.25" y="874.64788732394368"/>
         </scene>
         <!--Load View Controller-->
         <scene sceneID="qDf-ZX-YJx">
@@ -105,34 +118,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="gVK-jb-hmw">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="gVK-jb-hmw">
                                 <rect key="frame" x="169" y="315" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                <color key="color" red="0.23407140539999999" green="0.23407140539999999" blue="0.23407140539999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IR8-Z8-0j8">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="tqr-mS-8qu"/>
+                                </constraints>
+                                <color key="tintColor" red="0.23407140539999999" green="0.23407140539999999" blue="0.23407140539999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="barTintColor" red="0.91372549020000005" green="0.85490196080000003" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="0.23407140539999999" green="0.23407140539999999" blue="0.23407140539999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Cats" id="bji-Ow-u0T"/>
+                                </items>
+                            </navigationBar>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LuQ-Wv-AZi">
+                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="Cats" image="Cat" id="O62-zY-MkQ"/>
+                                </items>
+                            </tabBar>
                         </subviews>
-                        <color key="backgroundColor" red="0.73615580797195435" green="0.98139828443527222" blue="0.012735988944768906" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LuQ-Wv-AZi" firstAttribute="leading" secondItem="Syc-3e-Brb" secondAttribute="leading" id="6U8-QD-3Cz"/>
+                            <constraint firstItem="gVK-jb-hmw" firstAttribute="centerY" secondItem="Syc-3e-Brb" secondAttribute="centerY" id="6ut-ZT-KkD"/>
+                            <constraint firstItem="IR8-Z8-0j8" firstAttribute="top" secondItem="hgu-hj-I61" secondAttribute="bottom" constant="-20" id="UEP-KW-Jjs"/>
+                            <constraint firstItem="IR8-Z8-0j8" firstAttribute="leading" secondItem="Syc-3e-Brb" secondAttribute="leading" id="UTL-gi-bpf"/>
+                            <constraint firstAttribute="trailing" secondItem="IR8-Z8-0j8" secondAttribute="trailing" id="eru-EN-Mpn"/>
+                            <constraint firstAttribute="trailing" secondItem="LuQ-Wv-AZi" secondAttribute="trailing" id="gLV-eq-brl"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="LuQ-Wv-AZi" secondAttribute="bottom" id="vQw-KG-Mk5"/>
+                            <constraint firstItem="gVK-jb-hmw" firstAttribute="centerX" secondItem="Syc-3e-Brb" secondAttribute="centerX" id="xEN-sd-xC9"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="LoadIndicator" destination="gVK-jb-hmw" id="Qq0-R6-SYH"/>
-                        <segue destination="mFL-OC-ohm" kind="show" identifier="toMain" id="PzE-wp-5BJ"/>
+                        <segue destination="mFL-OC-ohm" kind="show" identifier="toMain" animates="NO" id="PzE-wp-5BJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="06x-Ki-DKt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-230" y="123"/>
+            <point key="canvasLocation" x="-231.19999999999999" y="122.78860569715144"/>
         </scene>
         <!--Cats-->
         <scene sceneID="FUf-1k-Ge0">
             <objects>
                 <navigationController id="iBd-Ya-fhE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Cats" id="ngJ-gg-Ena"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="RQm-yN-yfE">
+                    <tabBarItem key="tabBarItem" title="Cats" image="Cat" id="ngJ-gg-Ena"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RQm-yN-yfE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.73615580797195435" green="0.98139828443527222" blue="0.012735988944768906" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.23407140539999999" green="0.23407140539999999" blue="0.23407140539999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.91372549020000005" green="0.85490196080000003" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textColor" red="0.23407140539999999" green="0.23407140539999999" blue="0.23407140539999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -161,4 +205,7 @@
             <point key="canvasLocation" x="553" y="123"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Cat" width="25" height="25"/>
+    </resources>
 </document>

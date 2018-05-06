@@ -19,6 +19,7 @@
 		36E0F466209B5CA000ED4CC9 /* LoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E0F465209B5CA000ED4CC9 /* LoadViewController.swift */; };
 		36E0F468209B627900ED4CC9 /* CatProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E0F467209B627900ED4CC9 /* CatProvider.swift */; };
 		36E0F46A209B729700ED4CC9 /* CatTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E0F469209B729700ED4CC9 /* CatTableController.swift */; };
+		E24E397E209F10D600AC6F24 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24E397D209F10D600AC6F24 /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		36E0F465209B5CA000ED4CC9 /* LoadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadViewController.swift; sourceTree = "<group>"; };
 		36E0F467209B627900ED4CC9 /* CatProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatProvider.swift; sourceTree = "<group>"; };
 		36E0F469209B729700ED4CC9 /* CatTableController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatTableController.swift; sourceTree = "<group>"; };
+		E24E397D209F10D600AC6F24 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,21 +70,38 @@
 		36E0F44F209B562500ED4CC9 /* Cat Gif Bot 5000 */ = {
 			isa = PBXGroup;
 			children = (
+				E24E3980209F119F00AC6F24 /* Providers */,
+				E24E397F209F118C00AC6F24 /* Controllers */,
 				36E0F450209B562500ED4CC9 /* AppDelegate.swift */,
 				36E0F454209B562500ED4CC9 /* Main.storyboard */,
 				36E0F45A209B562500ED4CC9 /* Assets.xcassets */,
 				36E0F45C209B562500ED4CC9 /* LaunchScreen.storyboard */,
 				36E0F45F209B562500ED4CC9 /* Info.plist */,
 				36E0F457209B562500ED4CC9 /* Cat_Gif_Bot_5000.xcdatamodeld */,
-				36E0F465209B5CA000ED4CC9 /* LoadViewController.swift */,
-				36E0F467209B627900ED4CC9 /* CatProvider.swift */,
-				36E0F469209B729700ED4CC9 /* CatTableController.swift */,
 				36718DB6209BC31F00766CF8 /* GifEngine.swift */,
-				369C520A209C98A3001D0472 /* CatDetailViewController.swift */,
-				369C520C209CB0B6001D0472 /* LoremProvider.swift */,
 				36C0929C209E148700E4F448 /* TableViewProtocol.swift */,
+				E24E397D209F10D600AC6F24 /* Config.swift */,
 			);
 			path = "Cat Gif Bot 5000";
+			sourceTree = "<group>";
+		};
+		E24E397F209F118C00AC6F24 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				36E0F465209B5CA000ED4CC9 /* LoadViewController.swift */,
+				36E0F469209B729700ED4CC9 /* CatTableController.swift */,
+				369C520A209C98A3001D0472 /* CatDetailViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		E24E3980209F119F00AC6F24 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				36E0F467209B627900ED4CC9 /* CatProvider.swift */,
+				369C520C209CB0B6001D0472 /* LoremProvider.swift */,
+			);
+			name = Providers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +184,7 @@
 				36E0F46A209B729700ED4CC9 /* CatTableController.swift in Sources */,
 				36E0F466209B5CA000ED4CC9 /* LoadViewController.swift in Sources */,
 				36E0F451209B562500ED4CC9 /* AppDelegate.swift in Sources */,
+				E24E397E209F10D600AC6F24 /* Config.swift in Sources */,
 				369C520B209C98A3001D0472 /* CatDetailViewController.swift in Sources */,
 				36718DB7209BC31F00766CF8 /* GifEngine.swift in Sources */,
 			);
