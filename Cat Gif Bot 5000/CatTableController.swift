@@ -97,10 +97,6 @@ class CatTableController : UITableViewController, TableViewProtocol {
         let imageView = cell.gifView
         imageView?.image = image
         
-        //let cellImg : UIImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
-        //cellImg.image = image
-        //tableView.rowHeight = image.size.height
-        //cell.addSubview(cellImg)
         
         return cell
     }
