@@ -30,7 +30,7 @@ class CatTableController : UITableViewController, TableViewProtocol {
     }
     
     func tableviewConfig() {
-        self.tableView.estimatedRowHeight = 85
+        self.tableView.estimatedRowHeight = 100
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
         let rc = UIRefreshControl()
@@ -90,7 +90,7 @@ class CatTableController : UITableViewController, TableViewProtocol {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "catCell", for: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "catCell", for: indexPath) as! CatGifTableCell
             
         let cat = indexPath.row
         let image = self.cats[cat]
@@ -98,11 +98,11 @@ class CatTableController : UITableViewController, TableViewProtocol {
 //        cellImg.image = image
 //        cell.addSubview(cellImg)
         
-        let imageView = cell.imageView
+        let imageView = cell.gifView
         //imageView?.sizeToFit()
             
         // Configure the cell...
-        cell.textLabel?.text = ""
+        //cell.textLabel?.text = ""
         imageView?.image = image
         
         return cell

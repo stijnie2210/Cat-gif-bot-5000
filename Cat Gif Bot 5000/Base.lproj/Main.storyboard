@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Fa5-D6-GVK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16G1314" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Fa5-D6-GVK">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,23 +24,26 @@
                             <color key="color" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </activityIndicatorView>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="0.0" reuseIdentifier="catCell" textLabel="dpG-oF-Bd5" rowHeight="128" style="IBUITableViewCellStyleDefault" id="gbn-FA-b2t">
+                            <tableViewCell clipsSubviews="YES" contentMode="top" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="0.0" reuseIdentifier="catCell" rowHeight="128" id="gbn-FA-b2t" customClass="CatGifTableCell" customModule="Cat_Gif_Bot_5000" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="gbn-FA-b2t" id="jeg-Fu-GpR">
-                                    <rect key="frame" x="0.0" y="0.0" width="341" height="128"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="127"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dpG-oF-Bd5">
-                                            <rect key="frame" x="16" y="0.0" width="324" height="127.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hBV-DA-Ii3">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="127"/>
+                                        </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="hBV-DA-Ii3" secondAttribute="trailing" id="dtA-Rl-NV4"/>
+                                        <constraint firstItem="hBV-DA-Ii3" firstAttribute="top" secondItem="jeg-Fu-GpR" secondAttribute="top" id="g7D-cW-Igm"/>
+                                        <constraint firstItem="hBV-DA-Ii3" firstAttribute="leading" secondItem="jeg-Fu-GpR" secondAttribute="leading" id="jcP-ih-Inh"/>
+                                        <constraint firstAttribute="bottom" secondItem="hBV-DA-Ii3" secondAttribute="bottom" id="nGs-KT-15q"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="gifView" destination="hBV-DA-Ii3" id="faW-fV-Fsv"/>
                                     <segue destination="hOF-0m-l3C" kind="show" identifier="toDetail" id="CAk-YD-4zC"/>
                                 </connections>
                             </tableViewCell>
